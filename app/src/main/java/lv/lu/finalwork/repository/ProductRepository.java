@@ -1,4 +1,4 @@
-package lv.lu.finalwork.finalwork.repository;
+package lv.lu.finalwork.repository;
 
 import lv.lu.finalwork.model.Product;
 
