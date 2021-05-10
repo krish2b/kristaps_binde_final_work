@@ -19,6 +19,7 @@ repositories {
 dependencies {
 
     implementation group: 'org.springframework', name: 'spring-context', version: '5.3.6'
+
     compileOnly 'org.projectlombok:lombok:1.18.20'
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
 

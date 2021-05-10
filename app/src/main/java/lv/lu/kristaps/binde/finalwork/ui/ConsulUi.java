@@ -2,14 +2,19 @@ package lv.lu.kristaps.binde.finalwork.ui;
 
 import lv.lu.kristaps.binde.finalwork.model.ProductInputData;
 import lv.lu.kristaps.binde.finalwork.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;
 
+
+@Controller
 public class ConsulUi {
 
-    private ProductService productService;
-    private Scanner scanner;
+    private final ProductService productService;
+    private final Scanner scanner;
 
+    @Autowired
     public ConsulUi(ProductService productService, Scanner scanner) {
         this.productService = productService;
         this.scanner = scanner;
@@ -22,7 +27,7 @@ public class ConsulUi {
             printMenu();
             userChoice = scanner.nextInt();
 
-            if (userChoice == 1){
+            if (userChoice == 1) {
                 ProductInputData productInputData = new ProductInputData();
 
                 System.out.println("Enter product name: ");
@@ -36,9 +41,9 @@ public class ConsulUi {
                 productInputData.setCategory(scanner.next());
 
                 productService.save(productInputData);
-            } else if(userChoice == 2){
+            } else if (userChoice == 2) {
                 productService.findAll().stream()
-                .forEach(System.out::println);
+                        .forEach(System.out::println);
             }
 
             if (userChoice == 0) {
