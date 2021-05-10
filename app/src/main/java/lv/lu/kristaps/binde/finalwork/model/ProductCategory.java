@@ -1,4 +1,4 @@
-package lv.lu.finalwork.model;
+package lv.lu.kristaps.binde.finalwork.model;
 
 public enum ProductCategory {
 

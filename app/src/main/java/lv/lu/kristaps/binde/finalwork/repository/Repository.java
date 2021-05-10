@@ -1,4 +1,4 @@
-package lv.lu.finalwork.repository;
+package lv.lu.kristaps.binde.finalwork.repository;
 
 import java.util.List;
 
