@@ -1,13 +1,19 @@
 package lv.lu.kristaps.binde.finalwork;
 
-import lv.lu.kristaps.binde.finalwork.config.AppConfiguration;
 import lv.lu.kristaps.binde.finalwork.ui.ConsulUi;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
+@EnableAutoConfiguration
+@SpringBootApplication
 public class ProductAccountingApplication {
+
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
+   final ConfigurableApplicationContext context =
+           SpringApplication.run(ProductAccountingApplication.class);
         context.getBean(ConsulUi.class).run();
     }
+
 }

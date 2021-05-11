@@ -1,9 +1,9 @@
 package lv.lu.kristaps.binde.finalwork.service;
 
-import lv.lu.kristaps.binde.finalwork.model.Product;
-import lv.lu.kristaps.binde.finalwork.model.ProductCategory;
+import jdk.jfr.internal.Repository;
+import lv.lu.kristaps.binde.finalwork.domain.Product;
+import lv.lu.kristaps.binde.finalwork.domain.ProductCategory;
 import lv.lu.kristaps.binde.finalwork.model.ProductInputData;
-import lv.lu.kristaps.binde.finalwork.repository.ProductRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -15,24 +15,22 @@ import java.math.BigDecimal;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-
 public class ProductServiceTest {
 
     @InjectMocks
     private ProductService victim;
 
     @Mock
-    private ProductRepository repositoryMock;
+    private Repository repositoryMock;
 
     @Test
-    public void shouldConvertAndStoreProductData() {
+    public void shouldCovertAndStoreProductData() {
         ProductInputData inputData = new ProductInputData();
         inputData.setName("orange");
         inputData.setPrice(0.84);
         inputData.setCategory("FRUIT");
         inputData.setDiscount(5d);
         inputData.setDescription("Very tasty fruit");
-
 
         victim.save(inputData);
 

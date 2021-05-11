@@ -1,6 +1,5 @@
-package lv.lu.kristaps.binde.finalwork.repository;
+package lv.lu.kristaps.binde.finalwork.domain;
 
-import lv.lu.kristaps.binde.finalwork.model.Product;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

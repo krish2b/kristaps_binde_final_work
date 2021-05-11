@@ -1,10 +1,10 @@
 package lv.lu.kristaps.binde.finalwork.service;
 
-import lv.lu.kristaps.binde.finalwork.model.Product;
-import lv.lu.kristaps.binde.finalwork.model.ProductCategory;
+import lv.lu.kristaps.binde.finalwork.domain.Product;
+import lv.lu.kristaps.binde.finalwork.domain.ProductCategory;
+import lv.lu.kristaps.binde.finalwork.domain.ProductCrudRepository;
 import lv.lu.kristaps.binde.finalwork.model.ProductData;
 import lv.lu.kristaps.binde.finalwork.model.ProductInputData;
-import lv.lu.kristaps.binde.finalwork.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,32 +12,30 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 @Service
 public class ProductService {
 
-    private  final ProductRepository repository;
+    private final ProductCrudRepository productRepository;
 
     @Autowired
-    public ProductService(ProductRepository repository) {
-        this.repository = repository;
+    public ProductService(ProductCrudRepository productOrmRepository) {
+        this.productRepository = productOrmRepository;
     }
 
     public void save(ProductInputData productInputData) {
         Product product = convertFrom(productInputData);
-        repository.save(product);
+        productRepository.save(product);
     }
 
     public List<ProductData> findAll() {
         List<ProductData> result = new ArrayList<>();
-        for (Product product : repository.findAll()) {
-            result.add(convertFrom(product));
+        for (Product product : productRepository.findAll()) {
+            result.add(covertFrom(product));
         }
         return result;
     }
 
-    private ProductData convertFrom(Product product) {
+    private ProductData covertFrom(Product product) {
         return new ProductData(
                 product.getId().toString(),
                 product.getName(),
@@ -49,12 +47,13 @@ public class ProductService {
         product.setName(productInputData.getName());
         product.setPrice(BigDecimal.valueOf(productInputData.getPrice()));
         product.setCategory(ProductCategory.valueOf(productInputData.getCategory()));
-        if(productInputData.getDiscount() != null){
+        if (productInputData.getDiscount() != null) {
             product.setDiscount(BigDecimal.valueOf(productInputData.getDiscount()));
         }
-        if (productInputData.getDescription() != null){
+        if (productInputData.getDescription() != null) {
             product.setDescription(productInputData.getDescription());
         }
         return product;
     }
 }
+
