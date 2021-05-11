@@ -1,9 +1,9 @@
 package lv.lu.kristaps.binde.finalwork.service;
 
-import lv.lu.kristaps.binde.finalwork.model.Product;
-import lv.lu.kristaps.binde.finalwork.model.ProductCategory;
+import lv.lu.kristaps.binde.finalwork.domain.Product;
+import lv.lu.kristaps.binde.finalwork.domain.ProductCategory;
 import lv.lu.kristaps.binde.finalwork.model.ProductInputData;
-import lv.lu.kristaps.binde.finalwork.repository.ProductRepository;
+import lv.lu.kristaps.binde.finalwork.repository.Repository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -22,7 +22,7 @@ public class ProductServiceTest {
     private ProductService victim;
 
     @Mock
-    private ProductRepository repositoryMock;
+    private Repository repositoryMock;
 
     @Test
     public void shouldConvertAndStoreProductData() {

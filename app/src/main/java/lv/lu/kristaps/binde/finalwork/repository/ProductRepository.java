@@ -1,14 +1,14 @@
 package lv.lu.kristaps.binde.finalwork.repository;
 
-import lv.lu.kristaps.binde.finalwork.model.Product;
+import lv.lu.kristaps.binde.finalwork.domain.Product;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@org.springframework.stereotype.Repository
-public class ProductRepository implements Repository<Product> {
+//@org.springframework.stereotype.Repository
+class ProductRepository implements Repository<Product> {
 
     private Long idCounter = 0L;
     private Map<Long, Product> repository = new HashMap<>();

@@ -1,10 +1,10 @@
 package lv.lu.kristaps.binde.finalwork.service;
 
-import lv.lu.kristaps.binde.finalwork.model.Product;
-import lv.lu.kristaps.binde.finalwork.model.ProductCategory;
+import lv.lu.kristaps.binde.finalwork.domain.Product;
+import lv.lu.kristaps.binde.finalwork.domain.ProductCategory;
 import lv.lu.kristaps.binde.finalwork.model.ProductData;
 import lv.lu.kristaps.binde.finalwork.model.ProductInputData;
-import lv.lu.kristaps.binde.finalwork.repository.ProductRepository;
+import lv.lu.kristaps.binde.finalwork.repository.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +17,10 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    private  final ProductRepository repository;
+    private  final Repository<Product> repository;
 
     @Autowired
-    public ProductService(ProductRepository repository) {
+    public ProductService(Repository<Product> repository) {
         this.repository = repository;
     }
 
